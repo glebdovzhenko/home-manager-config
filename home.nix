@@ -29,7 +29,10 @@
         email = "dovjenko.g@gmail.com";
       };
     };
+  };
 
+  programs.tmux = {
+    enable = true;
   };
 
   home.packages = with pkgs; [ 
@@ -43,6 +46,12 @@
     nvim = {
       target = ".config/nvim";
       source = "${dfs.outPath}/nvim";
+      recursive = true;
+      force = true;
+    };
+    tmux = {
+      target = ".config/tmux";
+      source = "${dfs.outPath}/tmux";
       recursive = true;
       force = true;
     };
